@@ -16,7 +16,7 @@ function App() {
                 ) : (
                     <div className="card">
                         <div className="card-title">Advice #{id}</div>
-                        <div className="card-body">{advice}</div>
+                        <div className="card-body">“{advice}”</div>
                         <div className="card-separator"></div>
                         <button className="card-btn" onClick={fetchAdvice}>
                             <img src={iconDice} alt=""/>
