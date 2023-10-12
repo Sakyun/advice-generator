@@ -4,11 +4,9 @@ const useAdviceAPI = () => {
     const [advice, setAdvice] = useState('');
     const [id, setId] = useState<number | undefined>();
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     const fetchAdvice = useCallback(async () => {
         setLoading(true);
-        setError(null);
 
         try {
             const response = await fetch('https://api.adviceslip.com/advice');
@@ -23,7 +21,6 @@ const useAdviceAPI = () => {
             setLoading(false);
 
         } catch (error) {
-            setError(error);
             setLoading(false);
         }
     }, []);
@@ -32,7 +29,7 @@ const useAdviceAPI = () => {
         fetchAdvice();
     }, [fetchAdvice]);
 
-    return {id, advice, loading, error, fetchAdvice};
+    return {id, advice, loading, fetchAdvice};
 }
 
 export default useAdviceAPI;

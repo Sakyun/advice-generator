@@ -5,15 +5,13 @@ import SkeletonLoader from "./AdviceSkeletonLoader.tsx";
 
 function App() {
     // const [advice, setAdvice] = useState<advice>({});
-    const {id, advice, loading, error, fetchAdvice} = useAdviceAPI();
+    const {id, advice, loading, fetchAdvice} = useAdviceAPI();
 
     return (
         <>
             <div className="bg">
                 {loading ? (
                     <SkeletonLoader/>
-                ) : error ? (
-                    <div>Error: {error.message}</div>
                 ) : (
                     <div className="card">
                         <div className="card-title">Advice #{id}</div>
