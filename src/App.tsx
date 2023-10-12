@@ -1,6 +1,7 @@
 import iconDice from './assets/icon-dice.svg';
 import './App.css'
 import useAdviceAPI from "./useAdviceAPI.ts";
+import SkeletonLoader from "./AdviceSkeletonLoader.tsx";
 
 function App() {
     // const [advice, setAdvice] = useState<advice>({});
@@ -10,7 +11,7 @@ function App() {
         <>
             <div className="bg">
                 {loading ? (
-                    <div>Loading...</div>
+                    <SkeletonLoader/>
                 ) : error ? (
                     <div>Error: {error.message}</div>
                 ) : (
@@ -19,7 +20,7 @@ function App() {
                         <div className="card-body">“{advice}”</div>
                         <div className="card-separator"></div>
                         <button className="card-btn" onClick={fetchAdvice}>
-                            <img src={iconDice} alt=""/>
+                            <img src={iconDice} alt="Dice Button"/>
                         </button>
                     </div>
                 )}
